@@ -1,0 +1,14 @@
+set int : c_long(98) scalar: 98
+cmp int scalar: 98 int: c_int(63) scalar<=int: 1 scalar==int: False
+set mpq: 312/10 scalar: 312/10
+inversion scalar1: 312/10 scalar2: 10/312 scalar1 <= scalar2: 1
+mpq_set scalar: 312/10 mpq: 312/10
+set frac p : c_long(40) q: c_ulong(19) scalar: 40/19
+set double: c_double(0.0067192398133055775) scalar: 0.0067192398133055775133
+double set scalar: 0.0067192398133055775133 double: c_double(148.8263594967662)
+set mpfr: c_double(0.8221856802284694)8.2218568022846938437e-1 scalar: 0.82218568022846938437
+mpfr set scalar: 0.82218568022846938437 mpfr: 8.2218568022846938437e-1
+set scalar1: 0.82218568022846938437 scalar2: 0.82218568022846938437 scalar1==scalar2: True
+equality scalar1: -0.82218568022846938437 scalar2: 0.82218568022846938437 scalar1==scalar2: False
+scalar1: 0.82218568022846938437 scalar2: 0.82218568022846938437 sgn(scalar1): 1 sgn(scalar2): 1
+infty scalar1: +oo scalar2:-oo isinfty(scalar1): 1 isinfty(scalar2): -1

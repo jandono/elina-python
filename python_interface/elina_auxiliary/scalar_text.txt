@@ -1,9 +1,0 @@
-set int : c_long(76) scalar: 76
-cmp int scalar: 76 int: c_int(5) scalar<=int: 1 scalar==int: False
-set frac p : c_long(1) q: c_ulong(4) scalar: 1/4
-set double: c_double(0.6387838337494889) scalar: 0.63878383374948888296
-double set scalar: 0.63878383374948888296 double: c_double(1.5654748087945018)
-set scalar1: 0.63878383374948888296 scalar2: 0.63878383374948888296 scalar1==scalar2: True
-equality scalar1: -0.63878383374948888296 scalar2: 0.63878383374948888296 scalar1==scalar2: False
-scalar1: 0.63878383374948888296 scalar2: 0.63878383374948888296 sgn(scalar1): 1 sgn(scalar2): 1
-infty scalar1: +oo scalar2:-oo isinfty(scalar1): 1 isinfty(scalar2): -1

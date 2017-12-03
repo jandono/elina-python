@@ -7,15 +7,12 @@ from enum import IntEnum
 /* ********************************************************************** */
 '''
 
-class FILE(Structure):
-    """ Imitation of FILE type in C. Not used at the moment """
-
-    pass
-
 class Mpz(Structure):
     """ Mpz ctype compatible with mpz_t from gmp.h """
 
     _fields_ = [('_mp_alloc', c_int), ('_mp_size', c_int), ('_mp_d', POINTER(c_long))]
+
+Mpz_t = Mpz * 1
 
 
 class Mpq(Structure):
@@ -23,11 +20,15 @@ class Mpq(Structure):
 
     _fields_ = [('_mp_num', Mpz), ('_mp_den', Mpz)]
 
+Mpq_t = Mpq * 1
+
 
 class Mpfr(Structure):
     """ Mpfr ctype compatible with mpfr_t from mpfr.h """
 
     _fields_ = [('_mpfr_prec', c_long), ('_mpfr_sign', c_int), ('_mpfr_exp', c_longlong), ('_mpfr_d', POINTER(c_ulonglong))]
+
+Mpfr_t = Mpfr * 1
 
 
 class CtypesEnum(IntEnum):
@@ -65,5 +66,8 @@ class ElinaScalarUnion(Union):
 class ElinaScalar(Structure):
     """ ElinaScalar ctype compatible with elina_scalar_t from elina_scalar.h """
     _fields_ = [('discr', c_uint), ('val', ElinaScalarUnion)]
+
+
+ElinaScalarPtr = POINTER(ElinaScalar)
 
 elina_scalar_print_prec = c_int(20)
