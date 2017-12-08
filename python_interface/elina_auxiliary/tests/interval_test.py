@@ -19,10 +19,6 @@ def print_c(str):
     printf(to_str(str))
 
 
-interval1 = elina_interval_alloc()
-interval2 = elina_interval_alloc()
-
-
 def test_set_int():
 
     inf = c_long(random.randint(0, 99))
@@ -143,6 +139,8 @@ def test_neg():
     print_c('\ninterval1 is bottom: {} is top: {}'.format(elina_interval_is_bottom(interval1), elina_interval_is_top(interval1)))
     print_c('\ninterval2 is bottom: {} is top: {}\n'.format(elina_interval_is_bottom(interval2), elina_interval_is_top(interval2)))
 
+interval1 = elina_interval_alloc()
+interval2 = elina_interval_alloc()
 
 test_set_int()
 test_set_mpq()
