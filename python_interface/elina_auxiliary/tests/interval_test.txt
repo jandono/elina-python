@@ -1,0 +1,11 @@
+set int inf: c_long(79) sup: c_long(88) interval: [79,88] is bottom: False is top: False
+set mpq inf: 350/18 sup: 765/18 interval: [350/18,765/18] is bottom: False is top: False
+set frac p1: c_long(24) q1: c_ulong(16) p2: c_long(42) q2: c_ulong(12) interval: [3/2,7/2] is bottom: False is top: False
+set double inf: c_double(0.46461621589735946) sup: c_double(0.022583835112377715) interval: [0.46461621589735946358,0.022583835112377714793] is bottom: True is top: False
+set mpfr inf: 9.6338209737577429337e-1 sup: 7.6632461346198810226e-1 interval: [0.96338209737577429337,0.76632461346198810226] is bottom: True is top: False
+set interval1: [0.96338209737577429337,0.76632461346198810226] interval2: [0.96338209737577429337,0.76632461346198810226] interval1 == interval2: True
+cmp interval1: [0.96338209737577429337,0.76632461346198810226] interval2: [93,192] interval1 <= interval2: -1 interva1 == interval2: False
+equality interval1: [1,-1] interval2: [-oo,+oo] interval1 == interval2: False
+neg interval1: [-oo,+oo] interval2: [-oo,+oo]
+interval1 is bottom: False is top: True
+interval2 is bottom: False is top: True

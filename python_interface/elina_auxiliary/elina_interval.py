@@ -256,11 +256,11 @@ def elina_interval_set_frac(interval, num_inf, den_inf, num_sup, den_sup):
     try:
         elina_interval_set_frac_c = elina_auxiliary_api.elina_interval_set_frac
         elina_interval_set_frac_c.restype = None
-        elina_interval_set_frac_c.argtypes = [ElinaIntervalPtr, c_long, c_long, c_long, c_long]
+        elina_interval_set_frac_c.argtypes = [ElinaIntervalPtr, c_long, c_ulong, c_long, c_ulong]
         elina_interval_set_frac_c(interval, num_inf, den_inf, num_sup, den_sup)
     except:
         print('Problem with loading/calling "elina_interval_set_frac" from "libelinaux.so"')
-        print('Make sure you are passing ElinaIntervalPtr, c_long, c_long, c_long and c_long to the function')
+        print('Make sure you are passing ElinaIntervalPtr, c_long, c_ulong, c_long and c_ulong to the function')
 
 
 def elina_interval_set_double(interval, inf, sup):
@@ -312,7 +312,7 @@ def elina_interval_set_mpfr(interval, inf, sup):
     """
 
     try:
-        elina_interval_set_mpfr_c = elina_auxiliary_api.elina_interval_set_mfpr
+        elina_interval_set_mpfr_c = elina_auxiliary_api.elina_interval_set_mpfr
         elina_interval_set_mpfr_c.restype = None
         elina_interval_set_mpfr_c.argtypes = [ElinaIntervalPtr, Mpfr_t, Mpfr_t]
         elina_interval_set_mpfr_c(interval, inf, sup)
@@ -619,7 +619,7 @@ def elina_interval_neg(interval1, interval2):
     """
 
     try:
-        elina_interval_neg_c = elina_auxiliary_api.elina_interval_neg_c
+        elina_interval_neg_c = elina_auxiliary_api.elina_interval_neg
         elina_interval_neg_c.restype = None
         elina_interval_neg_c.argtypes = [ElinaIntervalPtr, ElinaIntervalPtr]
         elina_interval_neg_c(interval1, interval2)
