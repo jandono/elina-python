@@ -1,3 +1,4 @@
+from elina_auxiliary_imports import *
 from elina_scalar_h import *
 
 
@@ -10,12 +11,9 @@ from elina_scalar_h import *
 # ====================================================================== #
 
 
-elina_scalar_api = CDLL("libelinaux.so")
-
-
 def elina_scalar_alloc():
     """
-    Allocates a scalar, of default type DOUBLE (the most economical)
+    Allocates an ElinaScalar, of default type DOUBLE (the most economical).
     
     Parameters
     -----------
@@ -24,13 +22,13 @@ def elina_scalar_alloc():
     Returns
     -------
     scalar : ElinaScalarPtr
-        Pointer to the newly allocated ElinaScalar
+        Pointer to the newly allocated ElinaScalar.
         
     """
 
     scalar = None
     try:
-        elina_scalar_alloc_c = elina_scalar_api.elina_scalar_alloc
+        elina_scalar_alloc_c = elina_auxiliary_api.elina_scalar_alloc
         elina_scalar_alloc_c.restype = ElinaScalarPtr
         scalar = elina_scalar_alloc_c()
     except:
@@ -41,12 +39,12 @@ def elina_scalar_alloc():
 
 def elina_scalar_free(scalar):
     """
-    Free a scalar
+    Free an ElinaScalar
     
     Parameters
     -----------
     scalar : ElinaScalarPtr
-        Pointer to the ElinaScalar that needs to be freed
+        Pointer to the ElinaScalar that needs to be freed.
         
     Returns
     -------
@@ -55,7 +53,7 @@ def elina_scalar_free(scalar):
     """
 
     try:
-        elina_scalar_free_c = elina_scalar_api.elina_scalar_free
+        elina_scalar_free_c = elina_auxiliary_api.elina_scalar_free
         elina_scalar_free_c.restype = None
         elina_scalar_free_c.argtypes = [ElinaScalarPtr]
         elina_scalar_free_c(scalar)
@@ -66,14 +64,14 @@ def elina_scalar_free(scalar):
 
 def elina_scalar_reinit(scalar, d):
     """
-    Change the type of an already allocated scalar (mainly for internal use)
+    Change the type of an already allocated ElinaScalar (mainly for internal use).
      
     Parameters
     -----------
     scalar : ElinaScalarPtr
-        Pointer to the ElinaScalar that needs to be reinitialised
+        Pointer to the ElinaScalar that needs to be reinitialised.
     d : c_uint
-        Enum of type ElinaScalarDiscr that defines the core of the ElinaScalar (0 = double, 1 = mpq, 2 = mpfr)
+        Enum of type ElinaScalarDiscr that defines the core of the ElinaScalar (0 = double, 1 = mpq, 2 = mpfr).
     
     Returns
     -------
@@ -82,7 +80,7 @@ def elina_scalar_reinit(scalar, d):
     """
 
     try:
-        elina_scalar_reinit_c = elina_scalar_api.elina_scalar_reinit
+        elina_scalar_reinit_c = elina_auxiliary_api.elina_scalar_reinit
         elina_scalar_reinit_c.restype = None
         elina_scalar_reinit_c.argtypes = [ElinaScalarPtr, c_uint]
         elina_scalar_reinit_c(scalar, d)
@@ -93,14 +91,14 @@ def elina_scalar_reinit(scalar, d):
 
 def elina_scalar_fprint(stream, scalar):
     """
-    Print scalar to stream
+    Print an ElinaScalar to a given stream.
     
     Parameters
     -----------
     stream : c_void_p
-        Stream on which the output should be printed
+        Stream on which the output should be printed.
     scalar : ElinaScalarPtr
-        ElinaScalar that needs to be printed
+        Pointer to the ElinaScalar that needs to be printed.
     
     Returns
     -------
@@ -109,7 +107,7 @@ def elina_scalar_fprint(stream, scalar):
     """
 
     try:
-        elina_scalar_fprint_c = elina_scalar_api.elina_scalar_fprint
+        elina_scalar_fprint_c = elina_auxiliary_api.elina_scalar_fprint
         elina_scalar_fprint_c.restype = None
         elina_scalar_fprint_c.argtypes = [c_void_p, ElinaScalarPtr]
         elina_scalar_fprint_c(stream, scalar)
@@ -125,14 +123,14 @@ def elina_scalar_fprint(stream, scalar):
 
 def elina_scalar_set(scalar1, scalar2):
     """
-    Set the value of scalar1 to scalar2
+    Set the value of one ElinaScalar to the value of another ElinaScalar.
     
     Parameters
     -----------
     scalar1 : ElinaScalarPtr
-        Destination
+        Destination.
     scalar2 : ElinaScalarPtr
-        Source
+        Source.
     
     Returns
     -------
@@ -141,7 +139,7 @@ def elina_scalar_set(scalar1, scalar2):
     """
 
     try:
-        elina_scalar_set_c = elina_scalar_api.elina_scalar_set
+        elina_scalar_set_c = elina_auxiliary_api.elina_scalar_set
         elina_scalar_set_c.restype = None
         elina_scalar_set_c.argtypes = [ElinaScalarPtr, ElinaScalarPtr]
         elina_scalar_set_c(scalar1, scalar2)
@@ -152,14 +150,14 @@ def elina_scalar_set(scalar1, scalar2):
 
 def elina_scalar_set_mpq(scalar, mpq_t):
     """
-    Set the value of scalar to mpq
+    Set the value of an ElinaScalar to the value of a Mpq_t.
     
     Parameters
     -----------
     scalar : ElinaScalarPtr
-        Destination
+        Destination.
     mpq_t : Mpq_t
-        Source
+        Source.
     
     Returns
     -------
@@ -168,7 +166,7 @@ def elina_scalar_set_mpq(scalar, mpq_t):
     """
 
     try:
-        elina_scalar_set_mpq_c = elina_scalar_api.elina_scalar_set_mpq
+        elina_scalar_set_mpq_c = elina_auxiliary_api.elina_scalar_set_mpq
         elina_scalar_set_mpq_c.restype = None
         elina_scalar_set_mpq_c.argtypes = [ElinaScalarPtr, Mpq_t]
         elina_scalar_set_mpq_c(scalar, mpq_t)
@@ -179,14 +177,14 @@ def elina_scalar_set_mpq(scalar, mpq_t):
 
 def elina_scalar_set_int(scalar, i):
     """
-    Set the value of scalar to i
+    Set the value of an ElinaScalar to the value of a long integer.
     
     Parameters
     -----------
     scalar : ElinaScalarPtr
-        Destination
+        Destination.
     i : c_long
-        Source
+        Source.
     
     Returns
     -------
@@ -195,7 +193,7 @@ def elina_scalar_set_int(scalar, i):
     """
 
     try:
-        elina_scalar_set_int_c = elina_scalar_api.elina_scalar_set_int
+        elina_scalar_set_int_c = elina_auxiliary_api.elina_scalar_set_int
         elina_scalar_set_int_c.restype = None
         elina_scalar_set_int_c.argtypes = [ElinaScalarPtr, c_long]
         elina_scalar_set_int_c(scalar, i)
@@ -206,16 +204,16 @@ def elina_scalar_set_int(scalar, i):
 
 def elina_scalar_set_frac(scalar, i, j):
     """
-    Set the value of scalar to i/j and assuming j!=0
+    Set the value of an ElinaScalar to the fraction of two long integers, assuming denominator!=0.
 
     Parameters
     -----------
     scalar : ElinaScalarPtr
-        Destination
+        Destination.
     i : c_long
-        Nominator
+        Nominator.
     j : c_ulong
-        Denominator
+        Denominator.
     
     Returns
     -------
@@ -224,7 +222,7 @@ def elina_scalar_set_frac(scalar, i, j):
     """
 
     try:
-        elina_scalar_set_frac_c = elina_scalar_api.elina_scalar_set_frac
+        elina_scalar_set_frac_c = elina_auxiliary_api.elina_scalar_set_frac
         elina_scalar_set_frac_c.restype = None
         elina_scalar_set_frac_c.argtypes = [ElinaScalarPtr, c_long, c_ulong]
         elina_scalar_set_frac_c(scalar, i, j)
@@ -235,14 +233,14 @@ def elina_scalar_set_frac(scalar, i, j):
 
 def elina_scalar_set_double(scalar, k):
     """
-    Set the value of scalar to k
+    Set the value of an ElinaScalar to the value of a double.
     
     Parameters
     -----------
     scalar : ElinaScalarPtr
-        Destination
+        Destination.
     k : c_double
-        Source
+        Source.
     
     Returns
     -------
@@ -251,7 +249,7 @@ def elina_scalar_set_double(scalar, k):
     """
 
     try:
-        elina_scalar_set_double_c = elina_scalar_api.elina_scalar_set_double
+        elina_scalar_set_double_c = elina_auxiliary_api.elina_scalar_set_double
         elina_scalar_set_double_c.restype = None
         elina_scalar_set_double_c.argtypes = [ElinaScalarPtr, c_double]
         elina_scalar_set_double_c(scalar, k)
@@ -262,14 +260,14 @@ def elina_scalar_set_double(scalar, k):
 
 def elina_scalar_set_mpfr(scalar, mpfr_t):
     """
-    Set the value of scalar mpfr_t
+    Set the value of an ElinaScalar to the value of a Mpfr_t.
     
     Parameters
     -----------
     scalar : ElinaScalarPtr
-        Destination
+        Destination.
     k : c_double
-        Source
+        Source.
     
     Returns
     -------
@@ -278,7 +276,7 @@ def elina_scalar_set_mpfr(scalar, mpfr_t):
     """
 
     try:
-        elina_scalar_set_mpfr_c = elina_scalar_api.elina_scalar_set_mpfr
+        elina_scalar_set_mpfr_c = elina_auxiliary_api.elina_scalar_set_mpfr
         elina_scalar_set_mpfr_c.restype = None
         elina_scalar_set_mpfr_c.argtypes = [ElinaScalarPtr, Mpfr_t]
         elina_scalar_set_mpfr_c(scalar, mpfr_t)
@@ -289,14 +287,14 @@ def elina_scalar_set_mpfr(scalar, mpfr_t):
 
 def elina_scalar_set_infty(scalar, sgn):
     """
-    Set the value of scalar to sgn*infty. If sign == 0 set scalar to zero
+    Set the value of an ElinaScalar to +infinity, -infinity or 0.
     
     Parameters
     -----------
     scalar : ElinaScalarPtr
-        Destination
+        Destination.
     sgn : c_int
-        Integer defining the sign of the infity
+        Integer defining the sign of the infity.
     
     Returns
     -------
@@ -305,7 +303,7 @@ def elina_scalar_set_infty(scalar, sgn):
     """
 
     try:
-        elina_scalar_set_infty_c = elina_scalar_api.elina_scalar_set_infty
+        elina_scalar_set_infty_c = elina_auxiliary_api.elina_scalar_set_infty
         elina_scalar_set_infty_c.restype = None
         elina_scalar_set_infty_c.argtypes = [ElinaScalarPtr, c_int]
         elina_scalar_set_infty_c(scalar, sgn)
@@ -321,23 +319,23 @@ def elina_scalar_set_infty(scalar, sgn):
 
 def elina_scalar_alloc_set(scalar2):
     """
-    Allocate an ElinaScalar and initialise it with scalar2
+    Allocate an ElinaScalar and initialise it with another ElinaScalar.
     
     Parameters
     -----------
     scalar2 : ElinaScalarPtr
-        Source
+        Source.
     
     Returns
     -------
     scalar1 : ElinaScalarPtr
-        Pointer to the newly allocated ElinaScalar
+        Pointer to the newly allocated ElinaScalar.
         
     """
 
     scalar1 = None
     try:
-        elina_scalar_alloc_set_c = elina_scalar_api.elina_scalar_alloc_set
+        elina_scalar_alloc_set_c = elina_auxiliary_api.elina_scalar_alloc_set
         elina_scalar_alloc_set_c.restype = ElinaScalarPtr
         elina_scalar_alloc_set_c.argtypes = [ElinaScalarPtr]
         scalar1 = elina_scalar_alloc_set_c(scalar2)
@@ -350,23 +348,23 @@ def elina_scalar_alloc_set(scalar2):
 
 def elina_scalar_alloc_set_mpq(mpq_t):
     """
-    Allocate an ElinaScalar and initialise it with mpq_t
+    Allocate an ElinaScalar and initialise it with Mpq_t.
     
     Parameters
     -----------
     mpq_t : Mpq_t
-        Source
+        Source.
     
     Returns
     -------
     scalar : ElinaScalarPtr
-        Pointer to the newly allocated ElinaScalar
+        Pointer to the newly allocated ElinaScalar.
         
     """
 
     scalar = None
     try:
-        elina_scalar_alloc_set_mpq_c = elina_scalar_api.elina_scalar_alloc_set_mpq
+        elina_scalar_alloc_set_mpq_c = elina_auxiliary_api.elina_scalar_alloc_set_mpq
         elina_scalar_alloc_set_mpq_c.restype = ElinaScalarPtr
         elina_scalar_alloc_set_mpq_c.argtypes = [Mpq_t]
         scalar = elina_scalar_alloc_set_mpq_c(mpq_t)
@@ -378,23 +376,23 @@ def elina_scalar_alloc_set_mpq(mpq_t):
 
 
 def elina_scalar_alloc_set_double(k):
-    """Allocate an ElinaScalar and initialise it with k
+    """Allocate an ElinaScalar and initialise it with double.
     
     Parameters
     -----------
     k : c_double
-        Source
+        Source.
     
     Returns
     -------
     scalar : ElinaScalarPtr
-        Pointer to the newly allocated ElinaScalar
+        Pointer to the newly allocated ElinaScalar.
         
     """
 
     scalar = None
     try:
-        elina_scalar_alloc_set_double_c = elina_scalar_api.elina_scalar_alloc_set_double
+        elina_scalar_alloc_set_double_c = elina_auxiliary_api.elina_scalar_alloc_set_double
         elina_scalar_alloc_set_double_c.restype = ElinaScalarPtr
         elina_scalar_alloc_set_double_c.argtypes = [c_double]
         scalar = elina_scalar_alloc_set_double_c(k)
@@ -407,23 +405,23 @@ def elina_scalar_alloc_set_double(k):
 
 def elina_scalar_alloc_set_mpfr(mpfr_t):
     """
-    Allocate an ElinaScalar and initialise it with mpfr_t
+    Allocate an ElinaScalar and initialise it with Mpfr_t.
     
     Parameters
     -----------
     mpfr_t : Mpfr_t
-        Source
+        Source.
     
     Returns
     -------
     scalar : ElinaScalarPtr
-        Pointer to the newly allocated ElinaScalar
+        Pointer to the newly allocated ElinaScalar.
         
     """
 
     scalar = None
     try:
-        elina_scalar_alloc_set_mpfr_c = elina_scalar_api.elina_scalar_alloc_set_mpfr
+        elina_scalar_alloc_set_mpfr_c = elina_auxiliary_api.elina_scalar_alloc_set_mpfr
         elina_scalar_alloc_set_mpfr_c.restype = ElinaScalarPtr
         elina_scalar_alloc_set_mpfr_c.argtypes = [Mpfr_t]
         scalar = elina_scalar_alloc_set_mpfr_c(mpfr_t)
@@ -441,28 +439,28 @@ def elina_scalar_alloc_set_mpfr(mpfr_t):
 
 def elina_mpq_set_scalar(mpq_t, scalar, rnd):
     """
-    Convert ElinaScalar to Mpq using rounding mode rnd and save the result in mpq_t
+    Convert an ElinaScalar to Mpq using rounding mode rnd
     Return 0 if conversation is exact, positive if result is greater and negative if result is lesser
     
     Parameters
     -----------
     mpq_t : Mpq_t
-        Destination
+        Destination.
     scalar : ElinaScalarPtr
-        Source
+        Source.
     rnd : c_int
-        Rounding mode enum as defined by MpfrRnd
+        Rounding mode enum as defined by MpfrRnd.
     
     Returns
     -------
     result : c_int
-        Integer stating the result of the rounding
+        Integer stating the result of the rounding.
         
     """
 
     result = None
     try:
-        elina_mpq_set_scalar_c = elina_scalar_api.elina_mpq_set_scalar
+        elina_mpq_set_scalar_c = elina_auxiliary_api.elina_mpq_set_scalar
         elina_mpq_set_scalar_c.restype = c_int
         elina_mpq_set_scalar_c.argtypes = [Mpq_t, ElinaScalarPtr, c_int]
         result = elina_mpq_set_scalar_c(mpq_t, scalar, rnd)
@@ -475,28 +473,28 @@ def elina_mpq_set_scalar(mpq_t, scalar, rnd):
 
 def elina_double_set_scalar(k, scalar, rnd):
     """
-    Convert ElinaScalar to double using rounding mode rnd and save the result in k
-    Return 0 if conversation is exact, positive if result is greater and negative if result is lesser
+    Convert an ElinaScalar to double using rounding mode rnd.
+    Return 0 if conversation is exact, positive if result is greater and negative if result is lesser.
     
     Parameters
     -----------
     k: c_double
-        Destination
+        Destination.
     scalar : ElinaScalarPtr
-        Source
+        Source.
     rnd : c_int
-        Rounding mode enum as defined by MpfrRnd
+        Rounding mode enum as defined by MpfrRnd.
     
     Returns
     -------
     result : c_int
-        Integer stating the result of the rounding
+        Integer stating the result of the rounding.
         
     """
 
     result = None
     try:
-        elina_double_set_scalar_c = elina_scalar_api.elina_double_set_scalar
+        elina_double_set_scalar_c = elina_auxiliary_api.elina_double_set_scalar
         elina_double_set_scalar_c.restype = c_int
         elina_double_set_scalar_c.argtypes = [POINTER(c_double), ElinaScalarPtr, c_int]
         result = elina_double_set_scalar_c(k, scalar, rnd)
@@ -509,28 +507,28 @@ def elina_double_set_scalar(k, scalar, rnd):
 
 def elina_mpfr_set_scalar(mpfr_t, scalar, rnd):
     """
-    Convert scalar to Mpfr using rounding mode rnd and save the result in mpfr_t
-    Return 0 if conversation is exact, positive if result is greater and negative if result is lesser
+    Convert an ElinaScalar to Mpfr using rounding mode rnd.
+    Return 0 if conversation is exact, positive if result is greater and negative if result is lesser.
     
     Parameters
     -----------
     mpfr_t : Mpfr_t
-        Destination
+        Destination.
     scalar : ElinaScalarPtr
-        Source
+        Source.
     rnd : c_int
-        Rounding mode enum as defined by MpfrRnd
+        Rounding mode enum as defined by MpfrRnd.
     
     Returns
     -------
     result : c_int
-        Integer stating the result of the rounding
+        Integer stating the result of the rounding.
         
     """
 
     result = None
     try:
-        elina_mpfr_set_scalar_c = elina_scalar_api.elina_mpfr_set_scalar
+        elina_mpfr_set_scalar_c = elina_auxiliary_api.elina_mpfr_set_scalar
         elina_mpfr_set_scalar_c.restype = c_int
         elina_mpfr_set_scalar_c.argtypes = [Mpfr_t, ElinaScalarPtr, c_int]
         result = elina_mpfr_set_scalar_c(mpfr_t, scalar, rnd)
@@ -548,23 +546,23 @@ def elina_mpfr_set_scalar(mpfr_t, scalar, rnd):
 
 def elina_scalar_infty(scalar):
     """
-    Return -1 if scalar is -infinity, 0 if scalar is finite and 1 if scalar is +infinity
+    Return -1 if an ElinaScalar is -infinity, 0 if it is finite and 1 if it is +infinity.
     
     Parameters
     -----------
     scalar : ElinaScalarPtr
-        Scalar to be tested for infinity
+        Pointer to the ElinaScalar that needs to be tested for infinity.
     
     Returns
     -------
     result : c_int
-        Integer stating the result of the testing
+        Integer stating the result of the testing.
         
     """
 
     result = None
     try:
-        elina_scalar_infty_c = elina_scalar_api.elina_scalar_infty
+        elina_scalar_infty_c = elina_auxiliary_api.elina_scalar_infty
         elina_scalar_infty_c.restype = c_int
         elina_scalar_infty_c.argtypes = [ElinaScalarPtr]
         result = elina_scalar_infty_c(scalar)
@@ -577,25 +575,27 @@ def elina_scalar_infty(scalar):
 
 def elina_scalar_cmp(scalar1, scalar2):
     """
-    Return -1 if scalar1 < scalar2, 0 if scalar1 == scalar2, 1 if scalar1 > scalar2
+    Compare an ElinaScalar to another ElinaScalar.
+    
     
     Parameters
     -----------
     scalar1 : ElinaScalarPtr
-        Scalar to be compared
+        Pointer to the ElinaScalar that needs to be compared.
     scalar2 : ElinaScalarPtr
-        Scalar to be compared
+        Pointer to the ElinaScalar that needs to be compared.
     
     Returns
     -------
     result : c_int
-        The result of the comparison
+        The result of the comparison. 
+        Return -1 if scalar1 < scalar2, 0 if scalar1 == scalar2, 1 otherwise.
         
     """
 
     result = None
     try:
-        elina_scalar_cmp_c = elina_scalar_api.elina_scalar_cmp
+        elina_scalar_cmp_c = elina_auxiliary_api.elina_scalar_cmp
         elina_scalar_cmp_c.restype = c_int
         elina_scalar_cmp_c.argtypes = [ElinaScalarPtr, ElinaScalarPtr]
         result = elina_scalar_cmp_c(scalar1, scalar2)
@@ -608,25 +608,26 @@ def elina_scalar_cmp(scalar1, scalar2):
 
 def elina_scalar_cmp_int(scalar, b):
     """
-    Return -1 if scalar < b, 0 if scalar == b, 1 if scalar > b
+    Compare an ElinaScalar to a double.
     
     Parameters
     -----------
     scalar : ElinaScalarPtr
-        Scalar to be compared
+        Pointer to the ElinaScalar that needs to be compared.
     b : c_int
-        Integer to be compared
+        Integer to be compared.
     
     Returns
     -------
     result : c_int
-        The result of the comparison
-        
+        The result of the comparison.
+        Return -1 if scalar1 < b, 0 if scalar1 == b, 1 otherwise.
+
     """
 
     result = None
     try:
-        elina_scalar_cmp_int_c = elina_scalar_api.elina_scalar_cmp_int
+        elina_scalar_cmp_int_c = elina_auxiliary_api.elina_scalar_cmp_int
         elina_scalar_cmp_int_c.restype = c_int
         elina_scalar_cmp_int_c.argtypes = [ElinaScalarPtr, c_int]
         result = elina_scalar_cmp_int_c(scalar, b)
@@ -639,25 +640,25 @@ def elina_scalar_cmp_int(scalar, b):
 
 def elina_scalar_equal(scalar1, scalar2):
     """
-    Return true if scalar1 == scalar2, false otherwise
+    Return true if ElinaScalar == ElinaScalar, false otherwise.
     
     Parameters
     -----------
     scalar1 : ElinaScalarPtr
-        Scalar to be tested for equality
+        Pointer to the ElinaScalar that needs to be tested for equality.
     scalar2 : ElinaScalarPtr
-        Scalar to be tested for equality
+        Pointer to the ELinaScalar that needs to be tested for equality.
     
     Returns
     -------
     result : c_bool
-        The result of the equality test
+        The result of the equality test.
         
     """
 
     result = None
     try:
-        elina_scalar_equal_c = elina_scalar_api.elina_scalar_equal
+        elina_scalar_equal_c = elina_auxiliary_api.elina_scalar_equal
         elina_scalar_equal_c.restype = c_bool
         elina_scalar_equal_c.argtypes = [ElinaScalarPtr, ElinaScalarPtr]
         result = elina_scalar_equal_c(scalar1, scalar2)
@@ -670,25 +671,25 @@ def elina_scalar_equal(scalar1, scalar2):
 
 def elina_scalar_equal_int(scalar, b):
     """
-    Return true if scalar == b, false otherwise
+    Return true if ElinaScalar == integer, false otherwise.
     
     Parameters
     -----------
     scalar : ElinaScalarPtr
-        Scalar to be tested for equality
+        Pointer to the ElinaScalar that needs to be tested for equality.
     b : c_int
-        Integer to be tested for equality
+        Integer to be tested for equality.
     
     Returns
     -------
     result : c_int
-        The result of the equality test
+        The result of the equality test.
         
     """
 
     result = None
     try:
-        elina_scalar_equal_int_c = elina_scalar_api.elina_scalar_equal_int
+        elina_scalar_equal_int_c = elina_auxiliary_api.elina_scalar_equal_int
         elina_scalar_equal_int_c.restype = c_bool
         elina_scalar_equal_int_c.argtypes = [ElinaScalarPtr, c_int]
         result = elina_scalar_equal_int_c(scalar, b)
@@ -701,23 +702,23 @@ def elina_scalar_equal_int(scalar, b):
 
 def elina_scalar_sgn(scalar):
     """
-    Return -1 if scalar is negative, 0 if scalar is None and +1 if scalar is positive
+    Return -1 if ElinaScalar is negative, 0 if ElinaScalar is None and +1 if ElinaScalar is positive.
     
     Parameters
     -----------
     scalar : ElinaScalarPtr
-        Scalar to be tested for the sign
+        Pointer to the ElinaScalar that needs to be tested for the sign.
     
     Returns
     -------
     result : c_int
-        The result of the sign test
+        The result of the sign test.
         
     """
 
     result = None
     try:
-        elina_scalar_sgn_c = elina_scalar_api.elina_scalar_sgn
+        elina_scalar_sgn_c = elina_auxiliary_api.elina_scalar_sgn
         elina_scalar_sgn_c.restype = c_int
         elina_scalar_sgn_c.argtypes = [ElinaScalarPtr]
         result = elina_scalar_sgn_c(scalar)
@@ -737,14 +738,14 @@ def elina_scalar_sgn(scalar):
 
 def elina_scalar_neg(scalar1, scalar2):
     """
-    Set scalar1 to -scalar2
+    Set an ElinaScalar to the negative of another ElinaScalar.
     
     Parameters
     -----------
     scalar1 : ElinaScalarPtr
-        Destination
+        Destination.
     scalar2 : ElinaScalarPtr
-        Source
+        Source.
         
     Returns
     -------
@@ -753,7 +754,7 @@ def elina_scalar_neg(scalar1, scalar2):
     """
 
     try:
-        elina_scalar_neg_c = elina_scalar_api.elina_scalar_neg
+        elina_scalar_neg_c = elina_auxiliary_api.elina_scalar_neg
         elina_scalar_neg_c.restype = None
         elina_scalar_neg_c.argtypes = [ElinaScalarPtr, ElinaScalarPtr]
         elina_scalar_neg_c(scalar1, scalar2)
@@ -764,14 +765,14 @@ def elina_scalar_neg(scalar1, scalar2):
 
 def elina_scalar_inv(scalar1, scalar2):
     """
-    Set scalar1 to 1/scalar2. Not exact for floating-point type
+    Set an ElinaScalar to the inverse of another ElinaScalar. Not exact for floating-point type.
     
     Parameters
     -----------
     scalar1 : ElinaScalarPtr
-        Destination
+        Destination.
     scalar2 : ElinaScalarPtr
-        Source
+        Source.
     
     Returns
     -------
@@ -780,7 +781,7 @@ def elina_scalar_inv(scalar1, scalar2):
     """
 
     try:
-        elina_scalar_inv_c = elina_scalar_api.elina_scalar_inv
+        elina_scalar_inv_c = elina_auxiliary_api.elina_scalar_inv
         elina_scalar_inv_c.restype = None
         elina_scalar_inv_c.argtypes = [ElinaScalarPtr, ElinaScalarPtr]
         elina_scalar_inv_c(scalar1, scalar2)
@@ -791,23 +792,23 @@ def elina_scalar_inv(scalar1, scalar2):
 
 def elina_scalar_hash(scalar):
     """
-    Return hash of scalar
+    Calculate the hash code of an ElinaScalar.
     
     Parameters
     -----------
     scalar : ElinaScalarPtr
-        Scalar to be hashed
+        Pointer to the ElinaScalar that needs to be hashed.
         
     Returns
     -------
     result : c_long
-        The resulting hash
+        The resulting hash.
         
     """
 
     result = None
     try:
-        elina_scalar_hash_c = elina_scalar_api.elina_scalar_hash
+        elina_scalar_hash_c = elina_auxiliary_api.elina_scalar_hash
         elina_scalar_hash_c.restype = c_long
         elina_scalar_hash_c.argtypes = [ElinaScalarPtr]
         result = elina_scalar_hash_c(scalar)

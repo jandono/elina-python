@@ -1,9 +1,7 @@
-from ctypes import *
+from elina_auxiliary_imports import *
 from ctypes import util
-from elina_scalar import  *
-from elina_scalar_h import *
+from elina_scalar import *
 import random
-import sys
 
 
 libc = CDLL(util.find_library('c'))

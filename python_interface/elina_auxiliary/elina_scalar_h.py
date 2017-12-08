@@ -1,4 +1,4 @@
-from ctypes import c_bool, c_int, c_uint, c_long, c_ulong, c_longlong, c_ulonglong, c_double, POINTER, Structure, Union , CDLL, c_void_p
+from elina_auxiliary_imports import *
 from enum import IntEnum
 
 '''
@@ -6,6 +6,7 @@ from enum import IntEnum
 /* I. Datatypes  */
 /* ********************************************************************** */
 '''
+
 
 class Mpz(Structure):
     """ Mpz ctype compatible with mpz_t from gmp.h """
@@ -60,11 +61,13 @@ class ElinaScalarDiscr(CtypesEnum):
 
 class ElinaScalarUnion(Union):
     """ Ctype representing the union field in elina_scalar_t from elina_scalar.h """
+
     _fields_ = [('dbl', c_double), ('mpq_ptr', POINTER(Mpq)), ('mpfr_ptr', POINTER(Mpfr))]
 
 
 class ElinaScalar(Structure):
     """ ElinaScalar ctype compatible with elina_scalar_t from elina_scalar.h """
+
     _fields_ = [('discr', c_uint), ('val', ElinaScalarUnion)]
 
 
