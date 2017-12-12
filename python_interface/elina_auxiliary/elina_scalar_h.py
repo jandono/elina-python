@@ -1,11 +1,10 @@
 from elina_auxiliary_imports import *
-from enum import IntEnum
 
-'''
-/* ********************************************************************** */
-/* I. Datatypes  */
-/* ********************************************************************** */
-'''
+
+# ********************************************************************** #
+# I. Datatypes
+# ********************************************************************** #
+
 
 
 class Mpz(Structure):
@@ -31,13 +30,6 @@ class Mpfr(Structure):
 
 Mpfr_t = Mpfr * 1
 
-
-class CtypesEnum(IntEnum):
-    """ A ctypes compatible IntEnum superclass """
-
-    @classmethod
-    def from_param(cls, obj):
-        return int(obj)
 
 class MpfrRnd(CtypesEnum):
     """ Rounding enums compatible with roundings from mpfr.h """

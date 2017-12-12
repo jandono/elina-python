@@ -66,7 +66,7 @@ def elina_interval_free(interval):
     Parameters
     ----------
     interval : ElinaIntervalPtr
-        ElinaIntervalPtr to the ElinaInterval that needs to be freed
+        Pointer to the ElinaInterval that needs to be freed.
 
     Returns
     -------
@@ -707,7 +707,6 @@ def elina_interval_array_free(interval_array, size):
     None
 
     """
-
 
     try:
         elina_interval_array_free_c = elina_auxiliary_api.elina_interval_array_free

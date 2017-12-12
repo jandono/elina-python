@@ -19,7 +19,7 @@ def print_c(str):
     printf(to_str(str))
 
 
-def test_set_int():
+def test_set_int(inteval1):
 
     inf = c_long(random.randint(0, 99))
     sup = c_long(random.randint(0, 99))
@@ -30,7 +30,7 @@ def test_set_int():
     print_c(' is bottom: {} is top: {}\n'.format(elina_interval_is_bottom(interval1), elina_interval_is_top(interval1)))
 
 
-def test_set_mpq():
+def test_set_mpq(interval1):
 
     inf1 = Mpq_t()
     sup1 = Mpq_t()
@@ -54,7 +54,7 @@ def test_set_mpq():
     libgmp.__gmpq_clear(sup1)
 
 
-def test_set_frac():
+def test_set_frac(interval1):
 
     p1 = c_long(random.randint(0, 99))
     q1 = c_ulong(random.randint(1, 19))
@@ -67,7 +67,7 @@ def test_set_frac():
     print_c(' is bottom: {} is top: {}\n'.format(elina_interval_is_bottom(interval1), elina_interval_is_top(interval1)))
 
 
-def test_set_double():
+def test_set_double(interval1):
 
     inf = c_double(random.uniform(-1, 1))
     sup = c_double(random.uniform(-1, 1))
@@ -78,7 +78,7 @@ def test_set_double():
     print_c(' is bottom: {} is top: {}\n'.format(elina_interval_is_bottom(interval1), elina_interval_is_top(interval1)))
 
 
-def test_set_mpfr():
+def test_set_mpfr(interval1):
 
     inf = Mpfr_t()
     sup = Mpfr_t()
@@ -99,7 +99,7 @@ def test_set_mpfr():
     print_c(' is bottom: {} is top: {}\n'.format(elina_interval_is_bottom(interval1), elina_interval_is_top(interval1)))
 
 
-def test_set_interval():
+def test_set_interval(interval1, interval2):
     elina_interval_set(interval2, interval1)
     print_c('set interval1: ')
     elina_interval_fprint(cstdout, interval1)
@@ -108,7 +108,7 @@ def test_set_interval():
     print_c(' interval1 == interval2: {}\n'.format(elina_interval_equal(interval1, interval2)))
 
 
-def test_cmp():
+def test_cmp(interval1, interval2):
     inf2 = c_long(random.randint(0, 99))
     sup2 = c_long(inf2.value + random.randint(0, 99))
     elina_interval_set_int(interval2, inf2, sup2)
@@ -120,7 +120,7 @@ def test_cmp():
     print_c(' interval1 <= interval2: {} interva1 == interval2: {}\n'.format(elina_interval_cmp(interval1, interval2),
                                                                            elina_interval_equal(interval1, interval2)))
 
-def test_equality():
+def test_equality(interval1, interval2):
     elina_interval_set_bottom(interval1)
     print_c('equality interval1: ')
     elina_interval_fprint(cstdout, interval1)
@@ -130,7 +130,7 @@ def test_equality():
     print_c(' interval1 == interval2: {}\n'.format(elina_interval_equal(interval1, interval2)))
 
 
-def test_neg():
+def test_neg(interval1, interval2):
     elina_interval_neg(interval1, interval2)
     print_c('neg interval1: ')
     elina_interval_fprint(cstdout, interval1)
@@ -139,18 +139,39 @@ def test_neg():
     print_c('\ninterval1 is bottom: {} is top: {}'.format(elina_interval_is_bottom(interval1), elina_interval_is_top(interval1)))
     print_c('\ninterval2 is bottom: {} is top: {}\n'.format(elina_interval_is_bottom(interval2), elina_interval_is_top(interval2)))
 
+
+def test_interval_array():
+    print_c('Testing arrays\n')
+    size = c_size_t(random.randint(1, 10))
+    interval_array = elina_interval_array_alloc(size)
+    for i in range(size.value):
+        option = random.randint(0, 4)
+
+        if option == 0:
+            test_set_int(interval_array[i])
+        elif option == 1:
+            test_set_mpq(interval_array[i])
+        elif option == 2:
+            test_set_frac(interval_array[i])
+        elif option == 3:
+            test_set_double(interval_array[i])
+        else:
+            test_set_mpfr(interval_array[i])
+
+
 interval1 = elina_interval_alloc()
 interval2 = elina_interval_alloc()
 
-test_set_int()
-test_set_mpq()
-test_set_frac()
-test_set_double()
-test_set_mpfr()
-test_set_interval()
-test_cmp()
-test_equality()
-test_neg()
+test_set_int(interval1)
+test_set_mpq(interval1)
+test_set_frac(interval1)
+test_set_double(interval1)
+test_set_mpfr(interval1)
+test_set_interval(interval1, interval2)
+test_cmp(interval1, interval2)
+test_equality(interval1, interval2)
+test_neg(interval1, interval2)
+test_interval_array()
 
 elina_interval_free(interval1)
 elina_interval_free(interval2)
