@@ -1,23 +1,6 @@
 from elina_auxiliary_imports import *
 from elina_interval import *
-from ctypes import util
-import random
-
-libc = CDLL(util.find_library('c'))
-libmpfr = CDLL(util.find_library('mpfr'))
-libgmp = CDLL(util.find_library('gmp'))
-
-printf = libc.printf
-
-cstdout = c_void_p.in_dll(libc, '__stdoutp')
-
-def to_str(str):
-    return bytes(str, 'utf-8')
-
-
-def print_c(str):
-    printf(to_str(str))
-
+from tests.test_imports import *
 
 def test_set_int(inteval1):
 
