@@ -1,5 +1,4 @@
-from elina_auxiliary_imports import *
-from elina_scalar_h import *
+# from elina_auxiliary_imports import *
 from elina_interval_h import *
 
 # ************************************************************************* #
