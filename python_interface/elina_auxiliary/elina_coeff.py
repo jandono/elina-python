@@ -731,19 +731,19 @@ def elina_coeff_equal(coeff1, coeff2):
 
 def elina_coeff_zero(coeff):
     """
-        Test if an ElinaCoeff is a zero ElinaScalar or an ElinaInterval with zero bounds.
+    Test if an ElinaCoeff is a zero ElinaScalar or an ElinaInterval with zero bounds.
 
-        Parameters
-        ----------
-        coeff : ElinaCoefPtr
-            Pointer to the ElinaCoeff that needs to be tested.
+    Parameters
+    ----------
+    coeff : ElinaCoefPtr
+        Pointer to the ElinaCoeff that needs to be tested.
 
-        Returns
-        -------
-        result : c_bool
-            Result of the zero test.
+    Returns
+    -------
+    result : c_bool
+        Result of the zero test.
 
-        """
+    """
 
     result = None
     try:
@@ -760,21 +760,21 @@ def elina_coeff_zero(coeff):
 
 def elina_coeff_equal_int(coeff, i):
     """
-        Test if an ElinaCoeff is equal to an integer.
+    Test if an ElinaCoeff is equal to an integer.
 
-        Parameters
-        ----------
-        coeff : ElinaCoeffPtr
-            Pointer to the ElinaCoeff that needs to be tested for equality.
-        i : c_int
-           Integer that needs to be tested for equality.
+    Parameters
+    ----------
+    coeff : ElinaCoeffPtr
+        Pointer to the ElinaCoeff that needs to be tested for equality.
+    i : c_int
+       Integer that needs to be tested for equality.
 
-        Returns
-        -------
-        result : c_bool
-            Result of the equality test.
+    Returns
+    -------
+    result : c_bool
+        Result of the equality test.
 
-        """
+    """
 
     result = None
     try:
