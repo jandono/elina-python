@@ -470,7 +470,7 @@ def elina_linexpr0_size(linexpr):
 
     size_linexpr = None
     try:
-        elina_linexpr0_size_c = elina_auxiliary_api.elina_linexpr0_size_c
+        elina_linexpr0_size_c = elina_auxiliary_api.elina_linexpr0_size
         elina_linexpr0_size_c.restype = c_size_t
         elina_linexpr0_size_c.argtypes = [ElinaLinexpr0Ptr]
         size_linexpr = elina_linexpr0_size_c(linexpr)
@@ -583,6 +583,8 @@ def elina_linexpr0_get_coeff(coeff, linexpr, dim):
         Destination.
     linexpr : ElinaLinexpr0Ptr
         Source.
+    dim : ElinaDim
+        Dimension for which we want to get the coefficient.
 
     Returns
     -------
@@ -1044,7 +1046,7 @@ def elina_linexpr0_set_coeff_interval(linexpr, dim, interval):
         Destination.
     dim : ElinaDim
         Destination.
-    num : c_double
+    interval : ElinaIntervalPtr
         Source.
 
     Returns
@@ -1268,8 +1270,8 @@ def elina_linexpr0_add_dimensions(linexpr2, dimchange):
 def elina_linexpr0_permute_dimensions_with(linexpr, perm):
     """
     Apply given permutation to the dimensions of an ElinaLinexpr0.
-    If dense representation, the size of the permutation should be the same as the size of the ElinaLinexpr0.
-    If sparse representation, the dimensions present in the expression should just be less than the size of the permutation.
+    If dense, the size of the permutation should be the same as the size of the ElinaLinexpr0.
+    If sparse, the dimensions present in the expression should just be less than the size of the permutation.
     
     Parameters
     ----------
@@ -1297,8 +1299,8 @@ def elina_linexpr0_permute_dimensions_with(linexpr, perm):
 def elina_linexpr0_permute_dimensions(linexpr2, perm):
     """
     Apply given permutation to the dimensions of an ElinaLinexpr0.
-    If dense representation, the size of the permutation should be the same as the size of the ElinaLinexpr0.
-    If sparse representation, the dimensions present in the expression should just be less than the size of the permutation.
+    If dense, the size of the permutation should be the same as the size of the ElinaLinexpr0.
+    If sparse, the dimensions present in the expression should just be less than the size of the permutation.
 
     Parameters
     ----------
@@ -1310,7 +1312,7 @@ def elina_linexpr0_permute_dimensions(linexpr2, perm):
     Returns
     -------
     linexpr1 : ElinaLinexpr0Ptr
-        Pointer to the newly created ElinaLinexpr0 with applied permutation.
+        Pointer to the newly created ElinaLinexpr0 with permuted dimensions.
 
     """
 

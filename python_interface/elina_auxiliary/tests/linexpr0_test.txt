@@ -1,0 +1,44 @@
+set scalar int size : c_ulong(10) linexpr: 27x0 + 89x1 + 67x2 + 92x3 + 17x4 + 82x5 + 83x6 + 40x7 + 48x8 + 86x9 + 78 is linear: True is quasilinear: True
+dim: c_ulong(5) is integer: False dim: c_ulong(5) is real: False
+set scalar int size : c_ulong(10) linexpr: 98x0 + 68x1 + 61x2 + 60x3 + 5x4 + 73x5 + 6x6 + 14x7 + 22x8 + 23x9 + 62 is linear: True is quasilinear: True
+dim: c_ulong(9) is integer: False dim: c_ulong(7) is real: False
+set scalar frac size: c_ulong(5) linexpr: 215/3x0 + 797/5x1 + 25/2x2 + 261/4x3 + 167/17x4 + 155/2 is linear: True is quasilinear: True
+dim: c_ulong(2) is integer: False dim: c_ulong(1) is real: False
+set scalar frac size: c_ulong(5) linexpr: 43/8x0 + 889/3x1 + 736x2 + 228x3 + 85/12x4 + 371/5 is linear: True is quasilinear: True
+dim: c_ulong(3) is integer: False dim: c_ulong(3) is real: False
+set scalar double size : c_ulong(2) linexpr: 0.073049669996982258269x0 + 0.36560900259750028773x1 - 0.667020950530300194 is linear: True is quasilinear: True
+dim: c_ulong(0) is integer: False dim: c_ulong(1) is real: False
+set scalar double size : c_ulong(2) linexpr: -0.87141851266318703928x0 - 0.62688195335868579505x1 + 0.72137820917958861422 is linear: True is quasilinear: True
+dim: c_ulong(0) is integer: False dim: c_ulong(0) is real: True
+set interval int size : c_ulong(10) linexpr: [94,120]x0 + [60,114]x1 + [21,95]x2 + [90,134]x3 + [58,62]x4 + [0,39]x5 + [93,129]x6 + [76,83]x7 + [40,45]x8 + [25,99]x9 + [84,176] is linear: False is quasilinear: False
+dim: c_ulong(5) is integer: False dim: c_ulong(8) is real: False
+set interval int size : c_ulong(10) linexpr: [75,170]x0 + [20,33]x1 + [92,94]x2 + [68,75]x3 + [73,172]x4 + [16,68]x5 + [39,41]x6 + [39,129]x7 + [5,10]x8 + [83,176]x9 + [11,16] is linear: False is quasilinear: False
+dim: c_ulong(9) is integer: False dim: c_ulong(5) is real: False
+set interval frac size : c_ulong(5) linexpr: [11,91/5]x0 + [5/4,83/4]x1 + [51,113]x2 + [96/5,146/5]x3 + [23,163/3]x4 + [25/19,30/19] is linear: False is quasilinear: False
+dim: c_ulong(3) is integer: False dim: c_ulong(2) is real: False
+set interval frac size : c_ulong(5) linexpr: [61/17,7]x0 + [26/5,64/5]x1 + [96/17,118/17]x2 + [1/6,10]x3 + [17/18,46/9]x4 + [13,109/5] is linear: False is quasilinear: False
+dim: c_ulong(2) is integer: False dim: c_ulong(2) is real: False
+set interval double size : c_ulong(2) linexpr: [0.32730302894153062709,-0.14480066794090151738]x0 + [-0.38530522650195231371,-0.83075691136268559056]x1 + [-0.45407243780976713765,-1.3494761364560436956] is linear: False is quasilinear: False
+dim: c_ulong(0) is integer: False dim: c_ulong(0) is real: True
+set interval double size : c_ulong(2) linexpr: [0.6937787128278187776,0.72829972475035908985]x0 + [0.18795412233841601868,0.22162996533871726079]x1 + [-0.76983972751447127258,-0.53093298143136236078] is linear: False is quasilinear: False
+dim: c_ulong(1) is integer: False dim: c_ulong(1) is real: False
+linexpr1: 0.073049669996982258269x0 + 0.36560900259750028773x1 - 0.667020950530300194
+linexpr2: -0.87141851266318703928x0 - 0.62688195335868579505x1 + 0.72137820917958861422
+linexpr3: [0.32730302894153062709,-0.14480066794090151738]x0 + [-0.38530522650195231371,-0.83075691136268559056]x1 + [-0.45407243780976713765,-1.3494761364560436956]
+linexpr4: [0.6937787128278187776,0.72829972475035908985]x0 + [0.18795412233841601868,0.22162996533871726079]x1 + [-0.76983972751447127258,-0.53093298143136236078]
+linexpr1 <= linexpr2: 1 linexpr2 <= linexpr1: -1
+linexpr1 <= linexpr3: -3 linexpr3 <= linexpr1: 3
+linexpr1 <= linexpr4: -3 linexpr4 <= linexpr1: 3
+linexpr2 <= linexpr3: -3 linexpr3 <= linexpr2: 3
+linexpr2 <= linexpr4: -3 linexpr4 <= linexpr2: 3
+linexpr3 <= linexpr4: -1 linexpr4 <= linexpr3: 1
+linexpr1: 0.073049669996982258269x0 + 0.36560900259750028773x1 - 0.667020950530300194
+linexpr2: -0.87141851266318703928x0 - 0.62688195335868579505x1 + 0.72137820917958861422
+linexpr3: [0.32730302894153062709,-0.14480066794090151738]x0 + [-0.38530522650195231371,-0.83075691136268559056]x1 + [-0.45407243780976713765,-1.3494761364560436956]
+linexpr4: [0.6937787128278187776,0.72829972475035908985]x0 + [0.18795412233841601868,0.22162996533871726079]x1 + [-0.76983972751447127258,-0.53093298143136236078]
+linexpr1 == linexpr2: False
+linexpr1 == linexpr3: False
+linexpr1 == linexpr4: False
+linexpr2 == linexpr3: False
+linexpr2 == linexpr4: False
+linexpr3 == linexpr4: False
