@@ -9,6 +9,8 @@ elina_lincons0_array_t generate_random_lincons0_array(unsigned short int dim, si
 	unsigned short int j, k; 
 	elina_coeff_t *cst, *coeff;
 	elina_lincons0_array_t  lincons0 = elina_lincons0_array_make(nbcons);
+//	elina_lincons0_array_fprint(stdout, &lincons0, NULL);
+
 	for(i=0; i < nbcons/3; i++){
 		lincons0.p[i].constyp = rand() %2 ? ELINA_CONS_SUPEQ : ELINA_CONS_EQ;
 		double d = (double)rand()/RAND_MAX*2.0-1.0;

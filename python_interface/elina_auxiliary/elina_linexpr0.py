@@ -198,7 +198,7 @@ def elina_linexpr0_print(linexpr, name_of_dim):
         elina_linexpr0_print_c.argtypes = [ElinaLinexpr0Ptr, POINTER(c_char_p)]
         elina_linexpr0_print_c(linexpr, name_of_dim)
     except:
-        print('Problem with loading/calling "elina_linexpr0_fprint" from "libelinaux.so"')
+        print('Problem with loading/calling "elina_linexpr0_print" from "libelinaux.so"')
         print('Make sure you are passing ElinaLinexpr0Ptr, POINTER(c_char_p) to the function')
 
 

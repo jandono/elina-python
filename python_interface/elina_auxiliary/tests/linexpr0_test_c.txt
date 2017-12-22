@@ -1,44 +1,44 @@
-set scalar int size : 5 linexpr: x0 + 15x1 + 99x2 + 11x3 + 58x4 + 11 is linear: 1 is quasilinear: 1
-dim: 4 is integer: 0 dim: 1 is real: 0
-set scalar int size : 5 linexpr: 73x0 + 16x1 + x2 + 68x3 + 62x4 + 95 is linear: 1 is quasilinear: 1
-dim: 4 is integer: 0 dim: 0 is real: 1
-set scalar frac size : 2 linexpr: 301/18x0 + 829/9x1 + 815/14 is linear: 1 is quasilinear: 1
-dim: 2 is integer: 1 dim: 0 is real: 1
-set scalar frac size : 2 linexpr: 795/13x0 + 737/14x1 + 13/7 is linear: 1 is quasilinear: 1
-dim: 0 is integer: 0 dim: 2 is real: 0
-set scalar double size : 1 linexpr: 0.8868918921271766731x0 - 0.9660922894096432012 is linear: 1 is quasilinear: 1
-dim: 0 is integer: 0 dim: 0 is real: 1
-set scalar double size : 1 linexpr: -0.51771718334300320663x0 - 0.49672860815037445104 is linear: 1 is quasilinear: 1
-dim: 0 is integer: 0 dim: 0 is real: 1
-set interval int size : 5 linexpr: [44,100]x0 + [36,43]x1 + [99,109]x2 + [4,9]x3 + [11,76]x4 + [82,180] is linear: 0 is quasilinear: 0
-dim: 4 is integer: 0 dim: 2 is real: 0
-set interval int size : 5 linexpr: [89,112]x0 + [8,38]x1 + [98,151]x2 + [53,100]x3 + [61,98]x4 + [87,138] is linear: 0 is quasilinear: 0
-dim: 1 is integer: 0 dim: 1 is real: 0
-set interval frac size : 2 linexpr: [75/16,103/16]x0 + [13/5,133/15]x1 + [20/19,60/19] is linear: 0 is quasilinear: 0
+set scalar int size : 4 linexpr: 7x0 + x1 + 46x2 + 67x3 + 32 is linear: 1 is quasilinear: 1
 dim: 0 is integer: 0 dim: 1 is real: 0
-set interval frac size : 2 linexpr: [52/15,137/15]x0 + [29/8,57/8]x1 + [17/15,82/15] is linear: 0 is quasilinear: 0
+set scalar int size : 4 linexpr: 46x0 + 14x1 + 41x2 + 15x3 + 96 is linear: 1 is quasilinear: 1
+dim: 0 is integer: 0 dim: 1 is real: 0
+set scalar frac size : 2 linexpr: 10x0 + 185/2x1 + 433/12 is linear: 1 is quasilinear: 1
+dim: 2 is integer: 1 dim: 1 is real: 0
+set scalar frac size : 2 linexpr: 292/9x0 + 11/6x1 + 47/16 is linear: 1 is quasilinear: 1
+dim: 2 is integer: 1 dim: 1 is real: 0
+set scalar double size : 1 linexpr: -0.9864167785208750594x0 - 0.5379298159563586923 is linear: 1 is quasilinear: 1
+dim: 0 is integer: 0 dim: 0 is real: 1
+set scalar double size : 1 linexpr: 0.85107350715020380072x0 + 0.32467728169852749787 is linear: 1 is quasilinear: 1
+dim: 0 is integer: 0 dim: 0 is real: 1
+set interval int size : 4 linexpr: [82,120]x0 + [57,115]x1 + [88,91]x2 + [94,143]x3 + [79,88] is linear: 0 is quasilinear: 0
+dim: 3 is integer: 0 dim: 2 is real: 0
+set interval int size : 4 linexpr: [6,19]x0 + [54,109]x1 + [88,114]x2 + [15,34]x3 + [24,105] is linear: 0 is quasilinear: 0
+dim: 1 is integer: 0 dim: 2 is real: 0
+set interval frac size : 2 linexpr: [30/11,101/11]x0 + [19/2,105/8]x1 + [35/6,125/12] is linear: 0 is quasilinear: 0
+dim: 1 is integer: 0 dim: 1 is real: 0
+set interval frac size : 2 linexpr: [0,10]x0 + [16/3,89/3]x1 + [19/20,47/10] is linear: 0 is quasilinear: 0
 dim: 1 is integer: 0 dim: 0 is real: 1
-set interval double size : 1 linexpr: [0.45804447189813690677,0.81148366388468251564]x0 + [-0.83363668985368533093,-1.7654830607424876199] is linear: 0 is quasilinear: 0
+set interval double size : 1 linexpr: [-0.80694095967660706137,-1.0636502444109181553]x0 + [0.83570567697086639569,0.54101852632175129187] is linear: 0 is quasilinear: 0
 dim: 0 is integer: 0 dim: 0 is real: 1
-set interval double size : 1 linexpr: [0.76379119686958896196,-0.19756301594784630993]x0 + [0.67802914217022669519,0.31382159717093305318] is linear: 0 is quasilinear: 0
+set interval double size : 1 linexpr: [-0.078438099044579101538,-0.38756874128597262885]x0 + [0.38609217730634481924,-0.56268383495634599623] is linear: 0 is quasilinear: 0
 dim: 0 is integer: 0 dim: 0 is real: 1
-linexpr1: 0.8868918921271766731x0 - 0.9660922894096432012
-linexpr2: -0.51771718334300320663x0 - 0.49672860815037445104
-linexpr3: [0.45804447189813690677,0.81148366388468251564]x0 + [-0.83363668985368533093,-1.7654830607424876199]
-linexpr4: [0.76379119686958896196,-0.19756301594784630993]x0 + [0.67802914217022669519,0.31382159717093305318]
- linexpr1<=linexpr2: 1 linexpr2<=linexpr1: -1
+linexpr1: -0.9864167785208750594x0 - 0.5379298159563586923
+linexpr2: 0.85107350715020380072x0 + 0.32467728169852749787
+linexpr3: [-0.80694095967660706137,-1.0636502444109181553]x0 + [0.83570567697086639569,0.54101852632175129187]
+linexpr4: [-0.078438099044579101538,-0.38756874128597262885]x0 + [0.38609217730634481924,-0.56268383495634599623]
+ linexpr1<=linexpr2: -1 linexpr2<=linexpr1: 1
  linexpr1<=linexpr3: -3 linexpr3<=linexpr1: 3
  linexpr1<=linexpr4: -3 linexpr4<=linexpr1: 3
  linexpr2<=linexpr3: -3 linexpr3<=linexpr2: 0
  linexpr2<=linexpr4: -3 linexpr4<=linexpr2: 3
- linexpr3<=linexpr4: 1 linexpr4<=linexpr3: -1
-linexpr1: 0.8868918921271766731x0 - 0.9660922894096432012
-linexpr2: -0.51771718334300320663x0 - 0.49672860815037445104
-linexpr3: [0.45804447189813690677,0.81148366388468251564]x0 + [-0.83363668985368533093,-1.7654830607424876199]
-linexpr4: [0.76379119686958896196,-0.19756301594784630993]x0 + [0.67802914217022669519,0.31382159717093305318]
+ linexpr3<=linexpr4: 0 linexpr4<=linexpr3: 0
+linexpr1: -0.9864167785208750594x0 - 0.5379298159563586923
+linexpr2: 0.85107350715020380072x0 + 0.32467728169852749787
+linexpr3: [-0.80694095967660706137,-1.0636502444109181553]x0 + [0.83570567697086639569,0.54101852632175129187]
+linexpr4: [-0.078438099044579101538,-0.38756874128597262885]x0 + [0.38609217730634481924,-0.56268383495634599623]
  linexpr1==linexpr2: 0
  linexpr1==linexpr3: 0
  linexpr1==linexpr4: 0
  linexpr2==linexpr3: 0 
  linexpr2==linexpr4: 0 
- linexpr3==linexpr4: 0 
+ linexpr3==linexpr4: 1 

@@ -1,4 +1,3 @@
-from elina_auxiliary_imports import *
 from elina_linexpr0 import *
 
 
@@ -66,3 +65,5 @@ class ElinaLincons0Array(Structure):
     """
 
     _fields_ = [('p', ElinaLincons0Ptr), ('size', c_size_t)]
+
+ElinaLincons0ArrayPtr = POINTER(ElinaLincons0Array)

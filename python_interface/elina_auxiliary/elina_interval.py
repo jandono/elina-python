@@ -1,4 +1,3 @@
-from elina_scalar_h import *
 from elina_interval_h import *
 
 # ====================================================================== #
@@ -9,10 +8,6 @@ from elina_interval_h import *
 def elina_interval_alloc():
     """
     Allocate a new ElinaInterval, using DOUBLE as default type for the scalars inside.
-    
-    Parameters
-    ----------
-    None
     
     Returns
     -------

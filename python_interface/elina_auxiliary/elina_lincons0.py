@@ -399,8 +399,8 @@ def elina_lincons0_array_resize(lincons_array, size):
     
     Parameters
     ----------
-    lincons_array : ElinaLincons0Array
-        ElinaLincons0Array that needs to be resized.
+    lincons_array : ElinaLincons0ArrayPtr
+        Pointer to the ElinaLincons0Array that needs to be resized.
     size : c_size_t
         New size of the ElinaLincons0Array.
 
@@ -413,11 +413,11 @@ def elina_lincons0_array_resize(lincons_array, size):
     try:
         elina_lincons0_array_resize_c = elina_auxiliary_api.elina_lincons0_array_resize
         elina_lincons0_array_resize_c.restype = None
-        elina_lincons0_array_resize_c.argtypes = [ElinaLincons0Array, c_size_t]
+        elina_lincons0_array_resize_c.argtypes = [ElinaLincons0ArrayPtr, c_size_t]
         elina_lincons0_array_resize_c(lincons_array, size)
     except:
         print('Problem with loading/calling "elina_lincons0_array_resize" from "libelinaux.so"')
-        print('Make sure you are passing ElinaLincons0Array, c_size_t to the function')
+        print('Make sure you are passing ElinaLincons0ArrayPtr, c_size_t to the function')
 
 
 def elina_lincons0_array_clear(lincons_array):
@@ -426,8 +426,8 @@ def elina_lincons0_array_clear(lincons_array):
     
     Parameters
     ----------
-    lincons_array : ElinaLincons0Array
-        ElinaLincons0Array that needs to be freed.
+    lincons_array : ElinaLincons0ArrayPtr
+        Pointer the ElinaLincons0Array that needs to be freed.
 
     Returns
     -------
@@ -438,11 +438,11 @@ def elina_lincons0_array_clear(lincons_array):
     try:
         elina_lincons0_array_clear_c = elina_auxiliary_api.elina_lincons0_array_clear
         elina_lincons0_array_clear_c.restype = None
-        elina_lincons0_array_clear_c.argtypes = [ElinaLincons0Array]
+        elina_lincons0_array_clear_c.argtypes = [ElinaLincons0ArrayPtr]
         elina_lincons0_array_clear_c(lincons_array)
     except:
         print('Problem with loading/calling "elina_lincons0_array_clear" from "libelinaux.so"')
-        print('Make sure you are passing ElinaLincons0Array to the function')
+        print('Make sure you are passing ElinaLincons0ArrayPtr to the function')
 
 
 def elina_lincons0_array_print(lincons_array, name_of_dim):
@@ -451,8 +451,8 @@ def elina_lincons0_array_print(lincons_array, name_of_dim):
     
     Parameters
     ----------
-    lincons_array : ElinaLincons0Array
-        ElinaLincons0Array that needs to be printed.
+    lincons_array : ElinaLincons0ArrayPtr
+        Pointer to the ElinaLincons0Array that needs to be printed.
     name_of_dim : POINTER(c_char_p)
         Dimension names.
         
@@ -465,11 +465,11 @@ def elina_lincons0_array_print(lincons_array, name_of_dim):
     try:
         elina_lincons0_array_print_c = elina_auxiliary_api.elina_lincons0_array_print
         elina_lincons0_array_print_c.restype = None
-        elina_lincons0_array_print_c.argtypes = [ElinaLincons0Array, POINTER(c_char_p)]
+        elina_lincons0_array_print_c.argtypes = [ElinaLincons0ArrayPtr, POINTER(c_char_p)]
         elina_lincons0_array_print_c(lincons_array, name_of_dim)
     except:
         print('Problem with loading/calling "elina_lincons0_array_print" from "libelinaux.so"')
-        print('Make sure you are passing ElinaLincons0Array, POINTER(c_char_p) to the function')
+        print('Make sure you are passing ElinaLincons0ArrayPtr, POINTER(c_char_p) to the function')
 
 
 def elina_lincons0_array_fprint(stream, lincons_array, name_of_dim):
@@ -480,8 +480,8 @@ def elina_lincons0_array_fprint(stream, lincons_array, name_of_dim):
     ----------
     stream : c_void_p
         Stream onto which to print.
-    lincons_array : ElinaLincons0Array
-        ElinaLincons0Array that needs to be printed.
+    lincons_array : ElinaLincons0ArrayPtr
+        Pointer to the ElinaLincons0Array that needs to be printed.
     name_of_dim : POINTER(c_char_p)
         Dimension names.
 
@@ -494,11 +494,11 @@ def elina_lincons0_array_fprint(stream, lincons_array, name_of_dim):
     try:
         elina_lincons0_array_fprint_c = elina_auxiliary_api.elina_lincons0_array_fprint
         elina_lincons0_array_fprint_c.restype = None
-        elina_lincons0_array_fprint_c.argtypes = [c_void_p, ElinaLincons0Array, POINTER(c_char_p)]
+        elina_lincons0_array_fprint_c.argtypes = [c_void_p, ElinaLincons0ArrayPtr, POINTER(c_char_p)]
         elina_lincons0_array_fprint_c(stream, lincons_array, name_of_dim)
     except:
-        print('Problem with loading/calling "elina_lincons0_array_print" from "libelinaux.so"')
-        print('Make sure you are passing c_void_p, ElinaLincons0Array, POINTER(c_char_p) to the function')
+        print('Problem with loading/calling "elina_lincons0_array_fprint" from "libelinaux.so"')
+        print('Make sure you are passing c_void_p, ElinaLincons0ArrayPtr, POINTER(c_char_p) to the function')
 
 
 def elina_lincons0_array_type(lincons_array):
@@ -507,8 +507,8 @@ def elina_lincons0_array_type(lincons_array):
     
     Parameters
     ----------
-    lincons_array : ElinaLincons0Array
-        ElinaLincons0Array that needs to be checked for its type.
+    lincons_array : ElinaLincons0ArrayPtr
+        Pointer to the ElinaLincons0Array that needs to be checked for its type.
 
     Returns
     -------
@@ -521,11 +521,11 @@ def elina_lincons0_array_type(lincons_array):
     try:
         elina_lincons0_array_type_c = elina_auxiliary_api.elina_lincons0_array_type
         elina_lincons0_array_type_c.restype = c_uint
-        elina_lincons0_array_type_c.argtypes = [ElinaLincons0Array]
+        elina_lincons0_array_type_c.argtypes = [ElinaLincons0ArrayPtr]
         array_type = elina_lincons0_array_type_c(lincons_array)
     except:
         print('Problem with loading/calling "elina_lincons0_array_type" from "libelinaux.so"')
-        print('Make sure you are passing ElinaLincons0Array to the function')
+        print('Make sure you are passing ElinaLincons0ArrayPtr to the function')
 
     return array_type
 
@@ -536,8 +536,8 @@ def elina_lincons0_array_is_linear(lincons_array):
     
     Parameters
     ----------
-    lincons_array : ElinaLincons0Array
-        ElinaLincons0Array that needs to be tested.
+    lincons_array : ElinaLincons0ArrayPtr
+        Pointer to the ElinaLincons0Array that needs to be tested.
 
     Returns
     -------
@@ -550,11 +550,11 @@ def elina_lincons0_array_is_linear(lincons_array):
     try:
         elina_lincons0_array_is_linear_c = elina_auxiliary_api.elina_lincons0_array_is_linear
         elina_lincons0_array_is_linear_c.restype = c_bool
-        elina_lincons0_array_is_linear_c.argtypes = [ElinaLincons0Array]
+        elina_lincons0_array_is_linear_c.argtypes = [ElinaLincons0ArrayPtr]
         result = elina_lincons0_array_is_linear_c(lincons_array)
     except:
         print('Problem with loading/calling "elina_lincons0_array_is_linear" from "libelinaux.so"')
-        print('Make sure you are passing ElinaLincons0Array to the function')
+        print('Make sure you are passing ElinaLincons0ArrayPtr to the function')
 
     return result
 
@@ -565,8 +565,8 @@ def elina_lincons0_array_is_quasilinear(lincons_array):
     
     Parameters
     ----------
-    lincons_array : ElinaLincons0Array
-        ElinaLincons0Array that needs to be tested.
+    lincons_array : ElinaLincons0ArrayPtr
+        Pointer to the ElinaLincons0Array that needs to be tested.
 
     Returns
     -------
@@ -579,11 +579,11 @@ def elina_lincons0_array_is_quasilinear(lincons_array):
     try:
         elina_lincons0_array_is_quasilinear_c = elina_auxiliary_api.elina_lincons0_array_is_quasilinear
         elina_lincons0_array_is_quasilinear_c.restype = c_bool
-        elina_lincons0_array_is_quasilinear_c.argtypes = [ElinaLincons0Array]
+        elina_lincons0_array_is_quasilinear_c.argtypes = [ElinaLincons0ArrayPtr]
         result = elina_lincons0_array_is_quasilinear_c(lincons_array)
     except:
         print('Problem with loading/calling "elina_lincons0_array_is_quasilinear" from "libelinaux.so"')
-        print('Make sure you are passing ElinaLincons0Array to the function')
+        print('Make sure you are passing ElinaLincons0ArrayPtr to the function')
 
     return result
 
@@ -598,8 +598,8 @@ def elina_lincons0_array_add_dimensions_with(lincons_array, dimchange):
 
     Parameters
     ----------
-    lincons_array : ElinaLincons0Array
-        ElinaLincons0Array to which we want to add dimensinos.
+    lincons_array : ElinaLincons0ArrayPtr
+        Pointer to the ElinaLincons0Array to which we want to add dimensinos.
     dimchange : ElinaDimchangePtr
         Pointer to the ElinaDimchange which semantics we want to follow.
 
@@ -612,11 +612,11 @@ def elina_lincons0_array_add_dimensions_with(lincons_array, dimchange):
     try:
         elina_lincons0_array_add_dimensions_with_c = elina_auxiliary_api.elina_lincons0_array_add_dimensions_with
         elina_lincons0_array_add_dimensions_with_c.restype = None
-        elina_lincons0_array_add_dimensions_with_c.argtypes = [ElinaLincons0Array, ElinaDimchangePtr]
+        elina_lincons0_array_add_dimensions_with_c.argtypes = [ElinaLincons0ArrayPtr, ElinaDimchangePtr]
         elina_lincons0_array_add_dimensions_with_c(lincons_array, dimchange)
     except:
         print('Problem with loading/calling "elina_lincons0_array_add_dimensions_with" from "libelinaux.so"')
-        print('Make sure you are passing ElinaLincons0Array, ElinaDimchangePtr to the function')
+        print('Make sure you are passing ElinaLincons0ArrayPtr, ElinaDimchangePtr to the function')
 
 
 def elina_lincons0_array_add_dimensions(lincons_array2, dimchange):
@@ -625,8 +625,8 @@ def elina_lincons0_array_add_dimensions(lincons_array2, dimchange):
     
     Parameters
     ----------
-    lincons_array2 : ElinaLincons0Array
-        ElinaLincons0Array to which we want to add dimensinos.
+    lincons_array2 : ElinaLincons0ArrayPtr
+        Pointer to the ElinaLincons0Array to which we want to add dimensinos.
     dimchange : ElinaDimchangePtr
         Pointer to the ElinaDimchange which semantics we want to follow.
 
@@ -641,11 +641,11 @@ def elina_lincons0_array_add_dimensions(lincons_array2, dimchange):
     try:
         elina_lincons0_array_add_dimensions_c = elina_auxiliary_api.elina_lincons0_array_add_dimensions
         elina_lincons0_array_add_dimensions_c.restype = ElinaLincons0Array
-        elina_lincons0_array_add_dimensions_c.argtypes = [ElinaLincons0Array, ElinaDimchangePtr]
+        elina_lincons0_array_add_dimensions_c.argtypes = [ElinaLincons0ArrayPtr, ElinaDimchangePtr]
         lincons_array1 = elina_lincons0_array_add_dimensions_c(lincons_array2, dimchange)
     except:
         print('Problem with loading/calling "elina_lincons0_array_add_dimensions" from "libelinaux.so"')
-        print('Make sure you are passing ElinaLincons0Array, ElinaDimchangePtr to the function')
+        print('Make sure you are passing ElinaLincons0ArrayPtr, ElinaDimchangePtr to the function')
 
     return lincons_array1
 
@@ -656,8 +656,8 @@ def elina_lincons0_array_permute_dimensions_with(lincons_array, perm):
 
     Parameters
     ----------
-    lincons_array : ElinaLincons0Array
-        ElinaLincons0Array which dimensions we want to permute.
+    lincons_array : ElinaLincons0ArrayPtr
+        Pointer to the ElinaLincons0Array which dimensions we want to permute.
     perm : ElinaDimpermPtr
         Pointer to the ElinaDimpermPtr which describes the permutation.
 
@@ -670,11 +670,11 @@ def elina_lincons0_array_permute_dimensions_with(lincons_array, perm):
     try:
         elina_lincons0_array_permute_dimensions_with_c = elina_auxiliary_api.elina_lincons0_array_permute_dimensions_with
         elina_lincons0_array_permute_dimensions_with_c.restype = None
-        elina_lincons0_array_permute_dimensions_with_c.argtypes = [ElinaLincons0Array, ElinaDimpermPtr]
+        elina_lincons0_array_permute_dimensions_with_c.argtypes = [ElinaLincons0ArrayPtr, ElinaDimpermPtr]
         elina_lincons0_array_permute_dimensions_with_c(lincons_array, perm)
     except:
         print('Problem with loading/calling "elina_lincons0_array_permute_dimensions_with" from "libelinaux.so"')
-        print('Make sure you are passing ElinaLincons0Array, ElinaDimpermPtr to the function')
+        print('Make sure you are passing ElinaLincons0ArrayPtr, ElinaDimpermPtr to the function')
 
 
 def elina_lincons0_array_permute_dimensions(lincons_array2, perm):
@@ -683,8 +683,8 @@ def elina_lincons0_array_permute_dimensions(lincons_array2, perm):
 
     Parameters
     ----------
-    lincons_array2 : ElinaLincons0Array
-        ElinaLincons0Array which dimensions we want to permute.
+    lincons_array2 : ElinaLincons0ArrayPtr
+        Pointer to the ElinaLincons0Array which dimensions we want to permute.
     perm : ElinaDimpermPtr
         Pointer to the ElinaDimpermPtr which describes the permutation.
 
@@ -699,10 +699,10 @@ def elina_lincons0_array_permute_dimensions(lincons_array2, perm):
     try:
         elina_lincons0_array_permute_dimensions_c = elina_auxiliary_api.elina_lincons0_array_permute_dimensions
         elina_lincons0_array_permute_dimensions_c.restype = ElinaLincons0Array
-        elina_lincons0_array_permute_dimensions_c.argtypes = [ElinaLincons0Array, ElinaDimpermPtr]
+        elina_lincons0_array_permute_dimensions_c.argtypes = [ElinaLincons0ArrayPtr, ElinaDimpermPtr]
         lincons_array1 = elina_lincons0_array_permute_dimensions_c(lincons_array2, perm)
     except:
         print('Problem with loading/calling "elina_lincons0_array_permute_dimensions" from "libelinaux.so"')
-        print('Make sure you are passing ElinaLincons0Array, ElinaDimpermPtr to the function')
+        print('Make sure you are passing ElinaLincons0ArrayPtr, ElinaDimpermPtr to the function')
 
     return lincons_array1

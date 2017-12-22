@@ -1,6 +1,5 @@
-from elina_auxiliary_imports import *
-from elina_dimension import *
-from elina_coeff import *
+from elina_dimension_h import *
+from elina_coeff_h import *
 
 
 # ====================================================================== #
