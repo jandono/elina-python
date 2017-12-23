@@ -13,7 +13,7 @@ def elina_linexpr0_alloc(lin_discr, size):
     Parameters
     ----------
     lin_discr : c_uint
-        Enum of type ElinaLinexprDiscr that is defines the representation (sparse or dense).
+        Enum of type ElinaLinexprDiscr that defines the representation (sparse or dense).
     size : c_size_t
         Size of the internal array.
 
