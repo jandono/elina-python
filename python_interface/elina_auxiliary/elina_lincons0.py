@@ -163,7 +163,7 @@ def elina_lincons0_fprint(stream, lincons, name_of_dim):
     -------
     None
 
-     """
+    """
 
     try:
         elina_lincons0_fprint_c = elina_auxiliary_api.elina_lincons0_fprint
@@ -308,7 +308,7 @@ def elina_lincons0_permute_dimensions_with(lincons, perm):
     lincons : ElinaLincons0Ptr
         Pointer to the ElinaLincons0 which dimensions we want to permute.
     perm : ElinaDimpermPtr
-        Pointer to the ElinaDimpermPtr which describes the permutation.
+        Pointer to the ElinaDimperm which describes the permutation.
 
     Returns
     -------
@@ -335,7 +335,7 @@ def elina_lincons0_permute_dimensions(lincons2, perm):
     lincons2 : ElinaLincons0Ptr
         Pointer to the ElinaLincons0 which dimensions we want to permute.
     perm : ElinaDimpermPtr
-        Pointer to the ElinaDimpermPtr which describes the permutation.
+        Pointer to the ElinaDimperm which describes the permutation.
 
     Returns
     -------
@@ -599,7 +599,7 @@ def elina_lincons0_array_add_dimensions_with(lincons_array, dimchange):
     Parameters
     ----------
     lincons_array : ElinaLincons0ArrayPtr
-        Pointer to the ElinaLincons0Array to which we want to add dimensinos.
+        Pointer to the ElinaLincons0Array to which we want to add dimensions.
     dimchange : ElinaDimchangePtr
         Pointer to the ElinaDimchange which semantics we want to follow.
 
@@ -626,7 +626,7 @@ def elina_lincons0_array_add_dimensions(lincons_array2, dimchange):
     Parameters
     ----------
     lincons_array2 : ElinaLincons0ArrayPtr
-        Pointer to the ElinaLincons0Array to which we want to add dimensinos.
+        Pointer to the ElinaLincons0Array to which we want to add dimensions.
     dimchange : ElinaDimchangePtr
         Pointer to the ElinaDimchange which semantics we want to follow.
 
@@ -668,7 +668,8 @@ def elina_lincons0_array_permute_dimensions_with(lincons_array, perm):
     """
 
     try:
-        elina_lincons0_array_permute_dimensions_with_c = elina_auxiliary_api.elina_lincons0_array_permute_dimensions_with
+        elina_lincons0_array_permute_dimensions_with_c = \
+            elina_auxiliary_api.elina_lincons0_array_permute_dimensions_with
         elina_lincons0_array_permute_dimensions_with_c.restype = None
         elina_lincons0_array_permute_dimensions_with_c.argtypes = [ElinaLincons0ArrayPtr, ElinaDimpermPtr]
         elina_lincons0_array_permute_dimensions_with_c(lincons_array, perm)
